@@ -22,7 +22,7 @@ abstract class WebViewPlatformCallbacksHandler {
   ///
   /// If true is returned the navigation is allowed, otherwise it is blocked.
   FutureOr<bool> onNavigationRequest(
-      {required String url, required bool isForMainFrame});
+      {@@required String url, @@required bool isForMainFrame});
 
   /// Invoked by [WebViewPlatformController] when a page has started loading.
   void onPageStarted(String url);
@@ -104,8 +104,8 @@ class WebResourceError {
   /// A user should not need to instantiate this class, but will receive one in
   /// [WebResourceErrorCallback].
   WebResourceError({
-    required this.errorCode,
-    required this.description,
+    @required this.errorCode,
+    @required this.description,
     this.domain,
     this.errorType,
     this.failingUrl,
@@ -391,7 +391,7 @@ class WebSettings {
     this.debuggingEnabled,
     this.gestureNavigationEnabled,
     this.allowsInlineMediaPlayback,
-    required this.userAgent,
+    @required this.userAgent,
   }) : assert(userAgent != null);
 
   /// The JavaScript execution mode to be used by the webview.
@@ -519,12 +519,12 @@ abstract class WebViewPlatform {
   ///
   /// `webViewPlatformHandler` must not be null.
   Widget build({
-    required BuildContext context,
+    @required BuildContext context,
     // TODO(amirh): convert this to be the actual parameters.
     // I'm starting without it as the PR is starting to become pretty big.
     // I'll followup with the conversion PR.
-    required CreationParams creationParams,
-    required WebViewPlatformCallbacksHandler webViewPlatformCallbacksHandler,
+    @required CreationParams creationParams,
+    @required WebViewPlatformCallbacksHandler webViewPlatformCallbacksHandler,
     WebViewPlatformCreatedCallback? onWebViewPlatformCreated,
     Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers,
   });
